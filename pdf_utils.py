@@ -25,7 +25,6 @@ from pypdf import PdfReader, PdfWriter
 from reportlab.lib.colors import Color
 from reportlab.pdfgen import canvas
 
-
 # ---------------------------------------------------------------------------
 # Small helpers used by the tools below
 # ---------------------------------------------------------------------------

@@ -1,0 +1,28 @@
+[project]
+name = "cozypdf"
+version = "0.1.0"
+description = "A free PDF toolbox website built with FastAPI: merge, split, compress, convert and protect PDFs."
+readme = "README.md"
+requires-python = ">=3.14"
+dependencies = [
+    "cryptography>=50.0.2",
+    "fastapi[standard]>=0.162.2",
+    "markupsafe>=3.0.4",
+    "pillow>=13.0.0",
+    "pypdf>=7.0.1",
+    "pypdfium2>=5.15.2",
+    "reportlab>=5.1.0",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.2.0",
+    "ruff>=0.17.4",
+]
+
+[tool.ruff.lint]
+select = ["I"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

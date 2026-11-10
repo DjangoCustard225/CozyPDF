@@ -219,11 +219,12 @@ def test_api_safe_download_name():
 
 def test_every_icon_used_exists_in_icons_svg():
     import re
-    from pathlib import Path
-    from tools import TOOLS
 
     # Parse the file as real XML: this also fails if icons.svg is broken.
     import xml.etree.ElementTree as ET
+    from pathlib import Path
+
+    from tools import TOOLS
     svg = ET.parse("static/icons.svg").getroot()
     available = {symbol.get("id") for symbol in svg.iter("{http://www.w3.org/2000/svg}symbol")}
 

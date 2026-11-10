@@ -2,7 +2,7 @@
 CozyPDF - a PDF toolbox website built with FastAPI.
 
 Start it with:
-    uvicorn main:app --reload
+    uv run fastapi dev
 then open http://127.0.0.1:8000 in your browser.
 
 This file does two jobs:
