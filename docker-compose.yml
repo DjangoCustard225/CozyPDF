@@ -1,0 +1,29 @@
+# Start everything with:   docker compose up -d --build
+# Stop it with:            docker compose down
+# See the logs with:       docker compose logs -f
+
+services:
+  cozypdf:
+    build: .
+    container_name: cozypdf
+    restart: unless-stopped        # starts again after a crash or a server reboot
+    ports:
+      - "8000:8000"                # open http://<server-ip>:8000 on your network
+      # To only allow access from the server itself (e.g. when a reverse
+      # proxy runs on the same machine), use this line instead:
+      # - "127.0.0.1:8000:8000"
+    mem_limit: 1g                  # stops a huge PDF from using all your server's RAM
+
+  # OPTIONAL: Cloudflare Tunnel makes the site reachable from the internet
+  # without opening any ports on your router. Only starts with --profile tunnel.
+  # See the README for how to get the token.
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cozypdf-tunnel
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      - TUNNEL_TOKEN=${TUNNEL_TOKEN}
+    depends_on:
+      - cozypdf
+    profiles: ["tunnel"]

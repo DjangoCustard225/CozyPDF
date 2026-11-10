@@ -1,0 +1,9 @@
+{# One tool card. Expects a variable called `card` (a tool dictionary). #}
+<a class="tool-card"
+   href="/tools/{{ card.slug }}"
+   data-category="{{ card.category }}"
+   data-search="{{ (card.name ~ ' ' ~ card.description ~ ' ' ~ card.category) | lower }}">
+  <span class="tool-icon">{{ icon(card.icon) }}</span>
+  <h3>{{ card.name }}</h3>
+  <p>{{ card.description }}</p>
+</a>

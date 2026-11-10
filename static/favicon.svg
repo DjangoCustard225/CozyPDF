@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- CozyPDF logo: white line drawing on a black rounded square.
+       The drawing is scaled up 1.2x and centered, so it fills most of the square. -->
+  <rect width="32" height="32" rx="7" fill="#000"/>
+  <g transform="translate(1.6 1.9) scale(1.2)" fill="none" stroke="#fff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M13 9.5H5a1 1 0 0 0-1 1v10a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1v-8z"/>
+    <path d="M13 9.5v3h3"/>
+    <path d="M16 14h1.5a2.5 2.5 0 0 1 0 5H16"/>
+    <path d="M7.5 7.5c-1-1 1-1.6 0-2.75s1-1.75 0-2.75"/>
+    <path d="M11 7.5c-1-1 1-1.6 0-2.75s1-1.75 0-2.75"/>
+    <path d="M7 16h6"/>
+    <path d="M7 19h3.5"/>
+  </g>
+</svg>

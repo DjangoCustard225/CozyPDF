@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" data-static-version="{{ static_version() }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}CozyPDF{% endblock %}</title>
+  <meta name="description" content="Merge, split, compress, convert and protect PDF files for free.">
+
+  <!-- Apply the saved light/dark theme before the page draws, to avoid a flash -->
+  <script>
+    (function () {
+      var saved = null;
+      try { saved = localStorage.getItem("theme"); } catch (e) {}
+      var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+      document.documentElement.dataset.theme = saved || (prefersDark ? "dark" : "light");
+    })();
+  </script>
+
+  <!-- Font: JetBrains Mono, served from static/fonts. Preloading starts the download early. -->
+  <link rel="preload" href="/static/fonts/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="preload" href="/static/fonts/JetBrainsMono-ExtraBold.woff2" as="font" type="font/woff2" crossorigin>
+
+  <link rel="stylesheet" href="/static/css/style.css?v={{ static_version() }}">
+  <link rel="icon" href="/static/favicon.svg?v={{ static_version() }}" type="image/svg+xml">
+</head>
+<body>
+  <header class="navbar">
+    <div class="container navbar-inner">
+      <a href="/" class="logo">
+        <span class="logo-mark">{{ icon("cozypdf") }}</span>
+        <span>Cozy<strong>PDF</strong></span>
+      </a>
+      <button class="icon-button" id="theme-toggle" type="button" aria-label="Switch light/dark theme">
+        {{ icon("moon", "icon-moon") }}
+        {{ icon("sun", "icon-sun") }}
+      </button>
+    </div>
+  </header>
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>Cozy<strong>PDF</strong></span>
+      <p class="muted">Files are processed in memory and never stored.</p>
+    </div>
+  </footer>
+
+  <script src="/static/js/app.js?v={{ static_version() }}"></script>
+</body>
+</html>

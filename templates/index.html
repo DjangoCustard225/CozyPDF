@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <h1>Every PDF tool you need.</h1>
+    <p class="hero-text">Free, fast and private. No sign-up.</p>
+  </div>
+</section>
+
+<section class="section" id="tools">
+  <div class="container">
+    <div class="toolbar">
+      <div class="search">
+        {{ icon("search") }}
+        <input type="search" id="tool-search" placeholder="Search tools…" aria-label="Search tools">
+      </div>
+      <div class="chips" id="category-chips">
+        <button class="chip active" type="button" data-category="All">All</button>
+        {% for category in categories %}
+          <button class="chip" type="button" data-category="{{ category }}">{{ category }}</button>
+        {% endfor %}
+      </div>
+    </div>
+
+    <div class="tool-grid">
+      {% for card in tools %}
+        {% include "partials/tool_card.html" %}
+      {% endfor %}
+    </div>
+    <p class="empty-state muted" id="no-results" hidden>No tools match your search.</p>
+  </div>
+</section>
+{% endblock %}
